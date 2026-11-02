@@ -13,10 +13,13 @@ streamlit run app.py
 
 ## 데이터
 
-`data/SB_projects_demo.csv` 또는 `data/SB_project_demo.csv`를 읽습니다. 파일이 없으면 화면에서 CSV를 업로드할 수 있습니다.
+- 의뢰 목록: `data/SB_projects_demo.csv` 또는 `data/SB_project_demo.csv` (없으면 화면에서 CSV 업로드)
+- 시험 자원: `data/SB_resources_demo.csv` 또는 `data/SB_resource_demo.csv` (없으면 자원 현황 생략)
 
 ## 주요 기능
 
+- 시험 자원 현황 카드(EMC 챔버 A/B, RF 차폐실) — 현황 조회용이며 예약·시험 재개를 승인하는 기능이 아님
+- 의뢰 상세조회 및 담당자 메모 수정(세션에만 보관)
 - 요약 카드(전체·진행상태별), 기준일 선택(기본 2026-10-23)
 - 사이드바 다중 필터: 시험분야 / 적용규격 / 담당엔지니어 / 진행상태 / 시료상태
 - 잔여일수·일정 상태(지연 후보 빨간색 강조), 시험분야별 막대그래프, 진행상태 도넛 차트
