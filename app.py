@@ -393,6 +393,7 @@ def field_bar_chart(df):
         .configure_axis(labelColor=NAVY, titleColor="#4A5A78", gridColor="#E6ECF5",
                         domainColor="#C9D3E3")
         .configure_view(stroke=None)
+        .configure(background="#FFFFFF")
     )
 
 
@@ -408,7 +409,7 @@ def status_donut_chart(df):
             color=alt.Color(
                 "진행상태:N",
                 scale=alt.Scale(domain=STATUSES, range=STATUS_COLORS),
-                legend=alt.Legend(title=None, orient="right", labelColor=NAVY),
+                legend=alt.Legend(title=None, orient="right", labelColor=NAVY, labelFontSize=13),
             ),
             order=alt.Order("진행상태_순서:Q"),
             tooltip=["진행상태:N", "건수:Q", alt.Tooltip("비율:Q", format=".0%")],
@@ -416,6 +417,7 @@ def status_donut_chart(df):
         .transform_calculate(진행상태_순서=f"indexof({STATUSES}, datum.진행상태)")
         .properties(height=260)
         .configure_view(stroke=None)
+        .configure(background="#FFFFFF")
     )
 
 
@@ -477,10 +479,11 @@ else:
     left, right = st.columns(2)
     with left:
         st.subheader("시험분야별 건수")
-        st.altair_chart(field_bar_chart(view), width="stretch")
+        # theme=None: Streamlit 다크 테마 색을 쓰지 않고 차트에 지정한 흰 배경·네이비 글자 유지
+        st.altair_chart(field_bar_chart(view), width="stretch", theme=None)
     with right:
         st.subheader("진행상태 비율")
-        st.altair_chart(status_donut_chart(view), width="stretch")
+        st.altair_chart(status_donut_chart(view), width="stretch", theme=None)
 
     # ───────────────────────── 의뢰 목록 ─────────────────────────
     st.subheader("📄 의뢰 목록")

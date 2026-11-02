@@ -1,0 +1,7 @@
+# 다크 모드 PC/브라우저에서도 화이트 배경 + 네이비/블루 테마로 고정
+[theme]
+base = "light"
+primaryColor = "#1F5FBF"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#EEF3FB"
+textColor = "#0B2545"
